@@ -1126,7 +1126,7 @@ div.flow section.voice div.container div.title h2 {
 div.flow section.voice div.container div.title::after {
   position: absolute;
   content: "";
-  background-image: url("img/flow_voice_pot.png");
+  background-image: url("../img/flow_voice_pot.png");
   background-size: 50%;
   background-repeat: no-repeat;
   background-position: center;
