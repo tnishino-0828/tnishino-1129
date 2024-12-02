@@ -1,0 +1,1194 @@
+@charset "UTF-8";
+/* bodyのデフォルトを定義 */
+body {
+  text-rendering: optimizeSpeed;
+  line-height: 1.8;
+  font-family: "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", Meiryo, sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  font-feature-settings: "palt";
+}
+@media (min-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+/* marginとpaddingを削除 */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+dl,
+dd,
+ul,
+ol,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+/* pが連続したら段落を空ける */
+p + p {
+  margin-top: 1em;
+}
+
+/* list-styleを削除 */
+ul,
+ol {
+  list-style: none;
+}
+
+/* imgとpictureタグの設定 */
+img,
+picture {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+/* 各ブラウザやOSの設定で動きの制限をしている場合、すべてのアニメーションとトランジションを削除 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* aタグのテキストカラーを親要素から継承と、ホバー時のアニメーション */
+a {
+  color: inherit;
+}
+@media screen and (min-width: 768px) {
+  a {
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+  }
+}
+a:hover, a:focus {
+  text-decoration: none;
+  color: inherit;
+}
+@media screen and (min-width: 768px) {
+  a:hover, a:focus {
+    opacity: 0.7;
+    text-decoration: none;
+  }
+}
+@media screen and (min-width: 768px) {
+  a:hover img {
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+  }
+}
+
+@font-face {
+  font-family: "ShipporiMincho-Regular";
+  src: url("fonts/ShipporiMincho-Regular.ttf");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "ShipporiMincho-SemiBold";
+  src: url("fonts/ShipporiMincho-SemiBold.ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Amiri-Regular";
+  src: url("fonts/Amiri-Regular.ttf");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "NotoSansJP-Medium";
+  src: url("fonts/NotoSansJP-Medium.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Lato-Regular";
+  src: url("fonts/Lato-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+a {
+  text-decoration: none;
+}
+
+body {
+  margin-bottom: 50px;
+}
+@media (min-width: 768px) {
+  body {
+    margin-bottom: initial;
+  }
+}
+
+main {
+  background-color: #EDEFF0;
+}
+
+header {
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+header div.headerin {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 16px;
+}
+@media (min-width: 768px) {
+  header div.headerin {
+    padding: initial;
+  }
+}
+@media (min-width: 768px) {
+  header div.headerin div.logo {
+    padding: 20px 0 0 40px;
+  }
+}
+header div.headerin div.logo a img {
+  width: 62px;
+}
+@media (min-width: 768px) {
+  header div.headerin div.logo a img {
+    width: 130px;
+  }
+}
+header div.headerin div.mess {
+  display: none;
+}
+@media (min-width: 768px) {
+  header div.headerin div.mess {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    background-color: #FFFFFF;
+    position: absolute;
+    right: 0;
+    padding: 24px 98px 24px 29px;
+  }
+}
+@media (min-width: 768px) and (min-width: 768px) {
+  header div.headerin div.mess {
+    gap: 30px;
+  }
+}
+header div.headerin div.mess div.item a {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.7px;
+  line-height: 67px;
+  line-height: 38px;
+  font-family: "NotoSansJP-Medium";
+}
+@media (min-width: 768px) {
+  header div.headerin div.mess div.item a {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+}
+header div.headerin div.button {
+  position: fixed;
+  right: 16px;
+  top: 12px;
+  background-image: url("../img/menu_open_btn.png");
+  background-size: 100px;
+  width: 61px;
+  height: 61px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+header div.headerin div.button button {
+  border: none;
+  background: none;
+}
+header div.headerin div.button::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  width: 61px;
+  height: 61px;
+  mix-blend-mode: multiply;
+  z-index: -1;
+  box-shadow: 0px 0px 0px 0.5;
+}
+header div.headerin div.button:hover {
+  cursor: pointer;
+}
+
+div.fix_link {
+  position: fixed;
+  z-index: 2;
+  bottom: 0;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  div.fix_link {
+    display: none;
+  }
+}
+div.fix_link div.lists {
+  display: flex;
+}
+div.fix_link div.lists div.item {
+  flex: 1;
+}
+div.fix_link div.lists div.item a {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  height: 100%;
+  padding: 10px 4px;
+}
+div.fix_link div.lists div.item a div.icon {
+  width: 24px;
+}
+div.fix_link div.lists div.item a div.icon img {
+  vertical-align: middle;
+}
+div.fix_link div.lists div.item a span.name {
+  font-size: 15px;
+  letter-spacing: 0;
+}
+div.fix_link div.lists div.item:nth-child(1) a {
+  background-color: #fff;
+  border: 2px #224C71 solid;
+}
+div.fix_link div.lists div.item:nth-child(2) a {
+  background-color: #224C71;
+}
+div.fix_link div.lists div.item:nth-child(2) a span.name {
+  color: #FFFFFF;
+}
+
+div.keyvisual {
+  position: relative;
+}
+div.keyvisual img {
+  width: 100%;
+  height: 278px;
+  object-fit: cover;
+}
+@media (min-width: 768px) {
+  div.keyvisual img {
+    height: auto;
+  }
+}
+div.keyvisual div.title {
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform: translate(-50%, 50%);
+  width: 100%;
+  text-align: center;
+}
+div.keyvisual div.title h1 {
+  font-size: 28px;
+  font-family: "ShipporiMincho-Regular", serif;
+  color: #FFFFFF;
+}
+@media (min-width: 768px) {
+  div.keyvisual div.title h1 {
+    font-size: 38px;
+  }
+}
+div.keyvisual div.title h1::after {
+  position: absolute;
+  content: "";
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-bottom: 1px solid #fff;
+  width: 24px;
+  height: 1px;
+}
+div.keyvisual div.decor {
+  font-size: 75px;
+  color: #fff;
+  font-weight: 400;
+  font-family: "Amiri", serif;
+  letter-spacing: 10px;
+  line-height: 72px;
+  pointer-events: none;
+  opacity: 0.1;
+  position: absolute;
+  left: 50%;
+  bottom: -16px;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  div.keyvisual div.decor {
+    font-size: 100px;
+  }
+}
+
+div.flow div.breadcrumbs {
+  margin-bottom: initial;
+  padding: 0 20px;
+}
+div.flow div.breadcrumbs div.inner {
+  padding: 8px 0 0;
+}
+div.flow div.breadcrumbs div.inner span.name {
+  font-size: 12px;
+  letter-spacing: 3px;
+  line-height: 36px;
+  line-height: 18px;
+}
+
+footer {
+  background-image: url("../img/footer_background.png");
+  content: "";
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+footer div.pagetop {
+  position: absolute;
+  content: "";
+  width: 60px;
+  height: 60px;
+  right: 40px;
+  top: -30px;
+}
+footer div.pagetop a img {
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.2));
+}
+footer div.menubox {
+  padding-top: 100px;
+}
+footer div.menubox nav.footerin {
+  margin-left: 40px;
+}
+@media (min-width: 768px) {
+  footer div.menubox nav.footerin {
+    margin-left: initial;
+  }
+}
+@media (min-width: 768px) {
+  footer div.menubox nav.footerin ul.lists {
+    display: flex;
+    gap: 24px;
+  }
+}
+@media (min-width: 768px) {
+  footer div.menubox nav.footerin ul.lists li {
+    flex: 1;
+  }
+}
+footer div.menubox nav.footerin ul.lists li a {
+  letter-spacing: 1.28px;
+  line-height: 36px;
+  line-height: 20px;
+  font-family: "Lato-Regular";
+  color: #FFFFFF;
+  position: relative;
+}
+footer div.menubox nav.footerin ul.lists li a::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: -12px;
+  background: #fff;
+  border-radius: 50%;
+  width: 6px;
+  height: 6px;
+}
+footer div.menubox nav.footerin ul.lists li ul.sub {
+  margin-top: 8px;
+}
+footer div.menubox nav.footerin ul.lists li ul.sub li a {
+  position: initial;
+  font-size: 13px;
+  letter-spacing: 1.04px;
+  line-height: 26px;
+  color: #B0B5C4;
+  display: block;
+}
+footer div.menubox nav.footerin ul.lists li ul.sub li + li {
+  margin-top: initial;
+}
+footer div.menubox nav.footerin ul.lists li + li {
+  margin-top: 20px;
+}
+@media (min-width: 768px) {
+  footer div.menubox nav.footerin ul.lists li + li {
+    margin-top: initial;
+  }
+}
+footer div.menubox div.address {
+  position: relative;
+  margin-top: 54px;
+  padding: 0 10px;
+}
+@media (min-width: 768px) {
+  footer div.menubox div.address {
+    padding: initial;
+  }
+}
+footer div.menubox div.address div.title {
+  font-weight: bold;
+  letter-spacing: 1.12px;
+  line-height: 36px;
+  font-family: "Lato-Regular";
+  color: #FFFFFF;
+  padding-top: 30px;
+}
+footer div.menubox div.address ul.shop_lists {
+  margin-top: 18px;
+  margin-left: 10px;
+}
+@media (min-width: 768px) {
+  footer div.menubox div.address ul.shop_lists {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px 23px;
+  }
+}
+footer div.menubox div.address ul.shop_lists li div.name {
+  letter-spacing: 1.28px;
+  line-height: 36px;
+  line-height: 27px;
+  font-family: "Lato-Regular";
+  color: #FFFFFF;
+  position: relative;
+}
+footer div.menubox div.address ul.shop_lists li div.name::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: -12px;
+  background: #fff;
+  border-radius: 50%;
+  width: 6px;
+  height: 6px;
+}
+footer div.menubox div.address ul.shop_lists li address {
+  position: initial;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  line-height: 26px;
+  color: #B0B5C4;
+  margin-top: 7px;
+  margin-bottom: 0;
+}
+footer div.menubox div.address ul.shop_lists li div.tel_sns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
+}
+footer div.menubox div.address ul.shop_lists li div.tel_sns div.tel {
+  font-size: 13px;
+  letter-spacing: 1.04px;
+  line-height: 26px;
+  color: #B0B5C4;
+}
+footer div.menubox div.address ul.shop_lists li div.tel_sns div.icon {
+  display: flex;
+  gap: 10px;
+}
+footer div.menubox div.address ul.shop_lists li div.tel_sns div.icon a {
+  width: 36px;
+  display: block;
+}
+footer div.menubox div.address ul.shop_lists li + li {
+  margin-top: 23px;
+}
+@media (min-width: 768px) {
+  footer div.menubox div.address ul.shop_lists li + li {
+    margin-top: initial;
+  }
+}
+footer div.menubox div.address::before {
+  position: absolute;
+  content: "";
+  background-color: #FFFFFF;
+  width: 100%;
+  height: 1px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.1;
+}
+footer div.menubox div.banner {
+  margin-top: 64px;
+}
+@media (min-width: 768px) {
+  footer div.menubox div.banner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px 24px;
+  }
+}
+footer div.menubox div.banner div.item {
+  text-align: center;
+}
+footer div.menubox div.banner div.item + .item {
+  margin-top: 24px;
+}
+@media (min-width: 768px) {
+  footer div.menubox div.banner div.item + .item {
+    margin-top: initial;
+  }
+}
+footer div.menubox div.company_logo {
+  margin-top: 25px;
+  padding: 0 30px;
+}
+@media (min-width: 768px) {
+  footer div.menubox div.company_logo {
+    display: flex;
+    justify-items: flex-start;
+    margin-top: 54px;
+    padding: initial;
+  }
+}
+footer div.menubox div.company_logo div.lists {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px 42px;
+}
+@media (min-width: 768px) {
+  footer div.menubox div.company_logo div.lists {
+    flex-wrap: initial;
+    justify-content: initial;
+    align-items: center;
+  }
+}
+footer div.menubox div.company_logo div.lists div.item {
+  width: 40%;
+}
+@media (min-width: 768px) {
+  footer div.menubox div.company_logo div.lists div.item {
+    width: 15%;
+  }
+}
+footer div.menubox div.company_logo div.lists div.item img {
+  width: 100%;
+}
+footer div.menubox div.company_logo span {
+  letter-spacing: 0.64px;
+  line-height: 32px;
+  color: #FFFFFF;
+  text-align: center;
+  display: block;
+  margin-top: 20px;
+}
+@media (min-width: 768px) {
+  footer div.menubox.container {
+    width: 1200px;
+  }
+}
+footer div.copyright {
+  position: relative;
+  margin-top: 20px;
+  padding: 0 20px 20px;
+}
+@media (min-width: 768px) {
+  footer div.copyright {
+    padding: 20px 0;
+  }
+}
+@media (min-width: 768px) {
+  footer div.copyright div.container {
+    width: 1200px;
+  }
+}
+footer div.copyright div.container div.detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding-top: 20px;
+}
+@media (min-width: 768px) {
+  footer div.copyright div.container div.detail {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+}
+footer div.copyright div.container div.detail div.text {
+  font-size: 12px;
+  letter-spacing: 0.48px;
+  line-height: 32px;
+  line-height: 16px;
+  color: #B0B5C4;
+  order: 1;
+  text-align: center;
+}
+footer div.copyright div.container div.detail div.links {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  position: relative;
+}
+footer div.copyright div.container div.detail div.links div.item a {
+  font-size: 12px;
+  letter-spacing: 0.48px;
+  line-height: 32px;
+  line-height: 24px;
+  color: #B0B5C4;
+  text-decoration: underline;
+}
+footer div.copyright div.container div.detail div.links::before {
+  position: absolute;
+  content: "";
+  background-color: #B0B5C4;
+  width: 15px;
+  height: 1px;
+  transform: rotate(-75deg);
+  left: 55%;
+  bottom: 50%;
+}
+footer div.copyright::before {
+  position: absolute;
+  content: "";
+  background-color: #FFFFFF;
+  width: 100%;
+  height: 1px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.1;
+}
+
+main {
+  padding-bottom: 84px;
+}
+@media (min-width: 768px) {
+  main {
+    padding-bottom: 167px;
+  }
+}
+
+div.keyvisual div.decor {
+  font-size: 60px;
+}
+@media (min-width: 768px) {
+  div.keyvisual div.decor {
+    font-size: 100px;
+  }
+}
+
+div.flow div.lists {
+  margin-top: 54px;
+}
+@media (min-width: 768px) {
+  div.flow div.lists {
+    margin-top: 108px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.flow div.lists {
+    margin-top: 81px;
+  }
+}
+div.flow div.lists div.item {
+  background-color: #fff;
+}
+@media (min-width: 768px) {
+  div.flow div.lists div.item {
+    background-color: initial;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.flow div.lists div.item {
+    background-color: #fff;
+  }
+}
+div.flow div.lists div.item div.white_bg {
+  padding: 32px 16px;
+}
+@media (min-width: 768px) {
+  div.flow div.lists div.item div.white_bg {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    padding: 69px 100px 69px 0;
+    position: relative;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.flow div.lists div.item div.white_bg {
+    display: block;
+    width: 100%;
+    height: initial;
+    padding: 48px 16px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1024px) {
+  div.flow div.lists div.item div.white_bg {
+    height: 600px;
+    gap: 50px;
+    padding: 48px 16px;
+  }
+}
+div.flow div.lists div.item div.white_bg div.image {
+  position: relative;
+}
+div.flow div.lists div.item div.white_bg div.image img {
+  width: 100%;
+}
+div.flow div.lists div.item div.white_bg div.text {
+  position: relative;
+  margin-top: 32px;
+}
+@media (min-width: 768px) {
+  div.flow div.lists div.item div.white_bg div.text {
+    width: 560px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.flow div.lists div.item div.white_bg div.text {
+    width: initial;
+    margin-top: 48px;
+  }
+}
+div.flow div.lists div.item div.white_bg div.text div.number {
+  font-size: 96px;
+  font-weight: 500;
+  letter-spacing: -10px;
+  line-height: 71px;
+  font-family: "Amiri";
+  color: #020F34;
+  opacity: 0.04;
+  position: absolute;
+  top: -10px;
+}
+@media (min-width: 768px) {
+  div.flow div.lists div.item div.white_bg div.text div.number {
+    font-size: 170px;
+    letter-spacing: -17px;
+    line-height: 74px;
+    left: -48px;
+    top: 0;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.flow div.lists div.item div.white_bg div.text div.number {
+    left: 0;
+    top: 0px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1024px) {
+  div.flow div.lists div.item div.white_bg div.text div.number {
+    left: -30px;
+  }
+}
+div.flow div.lists div.item div.white_bg div.text dl dt div.title {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 4.2px;
+  line-height: 48px;
+  line-height: 24px;
+  font-family: "ShipporiMincho-Regular", serif;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+@media (min-width: 768px) {
+  div.flow div.lists div.item div.white_bg div.text dl dt div.title {
+    font-size: 28px;
+    line-height: 36px;
+  }
+}
+div.flow div.lists div.item div.white_bg div.text dl dt div.title div.line {
+  flex: 1;
+  height: 1px;
+  background-color: #020F34;
+  display: block;
+}
+div.flow div.lists div.item div.white_bg div.text dl dt span.english {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.65px;
+  line-height: 72px;
+  line-height: 18px;
+  font-family: "Amiri";
+}
+@media (min-width: 768px) {
+  div.flow div.lists div.item div.white_bg div.text dl dt span.english {
+    display: block;
+    margin-top: 8px;
+  }
+}
+div.flow div.lists div.item div.white_bg div.text dl dd {
+  letter-spacing: 2.25px;
+  line-height: 25px;
+  font-family: "ShipporiMincho-Regular", serif;
+  margin-top: 16px;
+}
+@media (min-width: 768px) {
+  div.flow div.lists div.item div.white_bg div.text dl dd {
+    font-size: 15px;
+    line-height: 34px;
+    margin-top: 38px;
+  }
+}
+div.flow div.lists div.item div.white_bg div.text dl dd div.contact {
+  font-weight: 500;
+  text-align: center;
+  font-family: initial;
+  margin-top: 24px;
+}
+@media (min-width: 768px) {
+  div.flow div.lists div.item div.white_bg div.text dl dd div.contact {
+    font-size: 15px;
+    margin-top: 48px;
+  }
+}
+div.flow div.lists div.item div.white_bg div.text dl dd div.contact div.tel {
+  font-weight: 400;
+}
+@media (min-width: 768px) {
+  div.flow div.lists div.item div.white_bg div.text dl dd div.contact div.tel {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    margin-top: 8px;
+  }
+}
+div.flow div.lists div.item div.white_bg div.text dl dd div.contact div.tel a {
+  font-size: 18px;
+  letter-spacing: 1.92px;
+  line-height: 26px;
+  display: block;
+}
+@media (min-width: 768px) {
+  div.flow div.lists div.item div.white_bg div.text dl dd div.contact div.tel a {
+    font-size: 24px;
+    margin-left: 4px;
+  }
+}
+div.flow div.lists div.item div.white_bg div.text dl dd div.contact div.tel span.time {
+  letter-spacing: 0.6px;
+  line-height: 26px;
+  font-family: "ShipporiMincho-Regular", serif;
+}
+@media (min-width: 768px) {
+  div.flow div.lists div.item div.white_bg div.text dl dd div.contact div.tel span.time {
+    font-size: 15px;
+    margin-left: 8px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1024px) {
+  div.flow div.lists div.item div.white_bg div.text dl dd div.contact div.tel span.time {
+    display: inline-block;
+  }
+}
+div.flow div.lists div.item div.white_bg div.text dl dd div.contact div.link {
+  margin-top: 16px;
+  margin-top: 25px;
+}
+div.flow div.lists div.item div.white_bg div.text dl dd div.contact div.link a {
+  font-weight: bold;
+  text-align: center;
+  border: 1px solid #020F34;
+  font-family: initial;
+  width: 100%;
+  display: block;
+  position: relative;
+  padding: 16px;
+}
+@media (min-width: 768px) {
+  div.flow div.lists div.item div.white_bg div.text dl dd div.contact div.link a {
+    font-size: 15px;
+    line-height: 24px;
+    width: 486px;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 992px) and (max-width: 1024px) {
+  div.flow div.lists div.item div.white_bg div.text dl dd div.contact div.link a {
+    width: initial;
+  }
+}
+div.flow div.lists div.item div.white_bg div.text dl dd div.contact div.link a img {
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+div.flow div.lists div.item div.white_bg div.text dl dd div.more {
+  margin-top: 24px;
+}
+@media (min-width: 768px) {
+  div.flow div.lists div.item div.white_bg div.text dl dd div.more {
+    display: flex;
+    gap: 18px;
+    margin-top: 88px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1024px) {
+  div.flow div.lists div.item div.white_bg div.text dl dd div.more {
+    display: flex;
+    flex-direction: column;
+    margin-top: 64px;
+  }
+}
+div.flow div.lists div.item div.white_bg div.text dl dd div.more a {
+  font-weight: bold;
+  text-align: center;
+  border: 1px solid #020F34;
+  font-family: initial;
+  width: 100%;
+  display: block;
+  position: relative;
+  padding: 16px;
+}
+@media (min-width: 768px) {
+  div.flow div.lists div.item div.white_bg div.text dl dd div.more a {
+    font-size: 15px;
+    line-height: 24px;
+    max-width: 486px;
+    margin: 0 auto;
+  }
+}
+div.flow div.lists div.item div.white_bg div.text dl dd div.more a img {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+div.flow div.lists div.item div.white_bg div.text dl dd div.more a + a {
+  margin-top: 16px;
+}
+@media (min-width: 768px) {
+  div.flow div.lists div.item div.white_bg div.text dl dd div.more a + a {
+    margin-top: initial;
+  }
+}
+@media (min-width: 768px) {
+  div.flow div.lists div.item div.white_bg::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 90%;
+    height: 544px;
+    background-color: #fff;
+    z-index: 0;
+    left: 0;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.flow div.lists div.item div.white_bg::before {
+    position: initial;
+  }
+}
+div.flow div.lists div.item + .item {
+  margin-top: 24px;
+}
+@media (min-width: 768px) {
+  div.flow div.lists div.item + .item {
+    margin-top: 48px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.flow div.lists div.item + .item {
+    margin-top: 32px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1024px) {
+  div.flow div.lists div.item + .item {
+    margin-top: initial;
+  }
+}
+@media (min-width: 1025px) and (max-width: 1400px) {
+  div.flow div.lists div.item + .item {
+    margin-top: 88px;
+  }
+}
+div.flow div.lists div.item:nth-child(odd) div.white_bg::before {
+  left: unset;
+  right: 0;
+}
+@media (min-width: 768px) {
+  div.flow div.lists div.item:nth-child(even) div.white_bg {
+    flex-direction: row-reverse;
+    padding: 69px 0 69px 100px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.flow div.lists div.item:nth-child(even) div.white_bg {
+    padding: 48px 16px;
+  }
+}
+@media (min-width: 768px) {
+  div.flow div.lists.container {
+    max-width: 1400px;
+  }
+}
+div.flow section.voice {
+  margin-top: 88px;
+}
+@media (min-width: 768px) {
+  div.flow section.voice {
+    margin-top: 176px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.flow section.voice {
+    margin-top: 132px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1024px) {
+  div.flow section.voice {
+    margin-top: 132px;
+  }
+}
+div.flow section.voice div.container div.title {
+  text-align: center;
+  position: relative;
+}
+div.flow section.voice div.container div.title span.english {
+  font-size: 13px;
+  letter-spacing: 0.65px;
+  line-height: 72px;
+  line-height: 18px;
+  position: relative;
+}
+div.flow section.voice div.container div.title span.english::after {
+  position: absolute;
+  content: "";
+  bottom: -8px;
+  left: 45%;
+  transform: translateX(-50%);
+  border-bottom: 1px solid #576387;
+  width: 20px;
+  height: 1px;
+}
+@media (min-width: 768px) {
+  div.flow section.voice div.container div.title span.english::after {
+    bottom: -18px;
+  }
+}
+div.flow section.voice div.container div.title span.english::before {
+  position: absolute;
+  content: "";
+  bottom: -8px;
+  left: 58%;
+  transform: translateX(-50%);
+  border-bottom: 1px solid #688F6A;
+  width: 20px;
+  height: 1px;
+}
+@media (min-width: 768px) {
+  div.flow section.voice div.container div.title span.english::before {
+    bottom: -18px;
+  }
+}
+div.flow section.voice div.container div.title h2 {
+  font-size: 20px;
+  letter-spacing: 3.9px;
+  line-height: 18px;
+  margin-top: 16px;
+}
+@media (min-width: 768px) {
+  div.flow section.voice div.container div.title h2 {
+    font-size: 26px;
+    line-height: 56px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.flow section.voice div.container div.title h2 {
+    line-height: 36px;
+  }
+}
+div.flow section.voice div.container div.title::after {
+  position: absolute;
+  content: "";
+  background-image: url("img/flow_voice_pot.png");
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 111px;
+  height: 91px;
+  right: -60px;
+  bottom: -10px;
+  transform: translateX(-50%);
+  z-index: 0;
+}
+@media (min-width: 768px) {
+  div.flow section.voice div.container div.title::after {
+    right: 0;
+    bottom: 10px;
+    right: 220px;
+    background-size: 100%;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.flow section.voice div.container div.title::after {
+    right: 50px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1024px) {
+  div.flow section.voice div.container div.title::after {
+    right: 150px;
+  }
+}
+div.flow section.voice div.container div.gallery {
+  margin-top: 48px;
+}
+@media (min-width: 768px) {
+  div.flow section.voice div.container div.gallery {
+    display: flex;
+    gap: 26px;
+    margin-top: 94px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.flow section.voice div.container div.gallery {
+    margin-top: 70px;
+  }
+}
+div.flow section.voice div.container div.gallery div.item {
+  background-color: #fff;
+  text-align: center;
+  padding: 16px;
+}
+div.flow section.voice div.container div.gallery div.item span.name {
+  font-size: 15px;
+  letter-spacing: 2.25px;
+  line-height: 54px;
+  line-height: 27px;
+}
+div.flow section.voice div.container div.gallery div.item + .item {
+  margin-top: 24px;
+}
+@media (min-width: 768px) {
+  div.flow section.voice div.container div.gallery div.item + .item {
+    margin-top: initial;
+  }
+}
+div.flow section.voice div.container div.gallery div.item:hover {
+  cursor: pointer;
+}/*# sourceMappingURL=style.css.map */
